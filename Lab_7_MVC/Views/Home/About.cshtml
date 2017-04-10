@@ -1,7 +1,21 @@
 ﻿@{
     ViewData["Title"] = "About";
 }
-<h2>@ViewData["Title"].</h2>
-<h3>@ViewData["Message"]</h3>
 
-<p>Use this area to provide additional information.</p>
+<h1 id="timer"></h1>
+
+<script>
+    setInterval(function () {
+        $.ajax({
+            url: "@Url.Action("Time")",
+            context: document.body
+        }).done(function (r) {
+            $('#timer').html(r);
+        });
+    }, 1000);
+</script>
+
+@section Menu
+{
+    <div style="color:yellowgreen">Обязательная секция - Время</div>
+}
